@@ -33,24 +33,26 @@ require.config({
 require([
     'backbone',
     'collections/CollectionBooks',
+    'collections/CollectionBooksBuy'
     'views/ViewBooks',
     'views/ViewBooksSlider',
     'bootstrap'
-], function (Backbone, CollectionBooks, ViewBooks, ViewBooksSlider) {
+], function (Backbone, CollectionBooks, CollectionBooksBuy, ViewBooks, ViewBooksSlider) {
     Backbone.history.start();
+    // Collection of all books availables
     var collectionBooks = new CollectionBooks();
+    // Collection of all book in my cart
+    var collectionBooksBuy = new CollectionBooksBuy();
     
     collectionBooks.fetch().then(function(data){
         var view = new ViewBooks({collection: collectionBooks});
         view.el;
 
         var viewsSlide = new ViewBooksSlider({ collection: collectionBooks });
-        viewsSlide.el;
-
-        
-        $(".carousel").carousel();
-
-       
+        viewsSlide.el;       
     });
+
+    // Bootstrap Carousel init
+    $(".carousel").carousel();
     
 });

@@ -8,7 +8,10 @@ define([
     'use strict';
 
     var CollectionbooksbuyCollection = Backbone.Collection.extend({
-        model: ModelBook
+        model: ModelBook,
+
+        // Save in localStorage the books in cart
+        localStorage: new Backbone.LocalStorage("Books")
     });
 
     return CollectionbooksbuyCollection;
