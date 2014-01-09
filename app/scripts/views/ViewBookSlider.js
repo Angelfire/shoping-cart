@@ -16,7 +16,16 @@ define([
         render: function(){
           this.$el.html( this.template( this.model.toJSON() ) );
           return this;
+        },
+
+        events: {
+            'click .addbtn': 'addToCart'
+        },
+
+        addToCart: function(){
+            console.log('item added from slider');
         }
+
     });
 
     return ViewbooksliderView;
