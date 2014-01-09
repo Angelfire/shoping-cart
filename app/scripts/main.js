@@ -19,6 +19,10 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        localstorage: {
+            deps: ['backbone'],
+            exports: 'backbone'
         }
     },
     paths: {
@@ -26,31 +30,32 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
         handlebars: '../bower_components/handlebars/handlebars',
-        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min'
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min',
+        localstorage: '../bower_components/backbone/backbone.localStorage-min'
     }
 });
 
 require([
     'backbone',
     'collections/CollectionBooks',
-    'collections/CollectionBooksBuy'
     'views/ViewBooks',
     'views/ViewBooksSlider',
+    'routes/Router',
     'bootstrap'
-], function (Backbone, CollectionBooks, CollectionBooksBuy, ViewBooks, ViewBooksSlider) {
+], function (Backbone, CollectionBooks, ViewBooks, ViewBooksSlider, Router) {
+    var router = new Router();
     Backbone.history.start();
     // Collection of all books availables
     var collectionBooks = new CollectionBooks();
-    // Collection of all book in my cart
-    var collectionBooksBuy = new CollectionBooksBuy();
     
-    collectionBooks.fetch().then(function(data){
+    // Fetch collection of all availables book and display
+    collectionBooks.fetch({ success: function(data){
         var view = new ViewBooks({collection: collectionBooks});
         view.el;
 
         var viewsSlide = new ViewBooksSlider({ collection: collectionBooks });
         viewsSlide.el;       
-    });
+    } });
 
     // Bootstrap Carousel init
     $(".carousel").carousel();

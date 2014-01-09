@@ -7,7 +7,7 @@ define([
 ], function (_, Backbone, ModelBook) {
     'use strict';
 
-    var CollectionbooksCollection = Backbone.Collection.extend({
+    var Collectionbooks = Backbone.Collection.extend({
         model: ModelBook,
 
         // Collection of books
@@ -15,5 +15,5 @@ define([
         
     });
 
-    return CollectionbooksCollection;
+    return Collectionbooks;
 });
