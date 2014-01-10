@@ -2,8 +2,10 @@
 
 define([
     'jquery',
-    'backbone'
-], function ($, Backbone) {
+    'backbone',
+    'views/ViewShoppingCart',
+    'collections/CollectionBooksBuy'
+], function ($, Backbone, ViewShoppingCart, CollectionBooksBuy) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
@@ -12,7 +14,9 @@ define([
         },
 
         getCart: function(){
-          console.log("accesing to cart shopping");
+            var collectionBooksBuy = new CollectionBooksBuy();
+            var viewShoppingCart = new ViewShoppingCart({ collection: collectionBooksBuy });
+            this.render();
         }
 
     });

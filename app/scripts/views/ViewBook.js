@@ -4,8 +4,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
+    'collections/CollectionBooksBuy',
+    'templates',
+    'localstorage'
+], function ($, _, Backbone, CollectionBooksBuy, JST) {
     'use strict';
 
     var ViewbookView = Backbone.View.extend({
@@ -23,7 +25,10 @@ define([
         },
 
         addToCart: function(){
-            console.log('item added');
+            CollectionBooksBuy.add(this.model);
+
+            // Count total items
+            $('#totalItems').text(CollectionBooksBuy.length);
         }
 
     });
