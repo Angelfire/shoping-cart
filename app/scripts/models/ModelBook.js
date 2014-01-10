@@ -12,7 +12,8 @@ define([
           description: '',
           price: 0.0,
           thumbURL: '',
-          imgURL: ''
+          imgURL: '',
+          inCart: false
         }
     });
 

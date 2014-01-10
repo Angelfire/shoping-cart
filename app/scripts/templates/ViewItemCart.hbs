@@ -1,6 +1,14 @@
 <td>{{name}}</td>
 <td><img src="{{thumbURL}}" class="table-thumbnail"/></td>
 <td>$ {{price}}</td>
-<td></td>
-<td>$ </td>
+<td>
+	<select class="quantityItems">
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select>
+</td>
+<td>$ <span class="quantityItem">{{price}}</span></td>
 <td><button type="button" class="btn btn-danger delete-item" data-id="{{id}}">Eliminar</button></td>

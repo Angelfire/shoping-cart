@@ -24,13 +24,20 @@ define([
         },
 
         events: {
-            'click .delete-item': 'deleteItem'
+            'click .delete-item': 'deleteItem',
+            'change .quantityItems' : 'quantityItem'
         },
 
         deleteItem: function() {
             this.model.destroy();        
-        }
-        
+        },
+
+        quantityItem: function(e){
+            var ammount = this.model.attributes.price * e.currentTarget.value;
+            this.$el.find('.quantityItem').text(ammount);
+        },
+
+
     });
 
     return ViewshoppingcartView;
