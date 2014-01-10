@@ -37,25 +37,11 @@ require.config({
 
 require([
     'backbone',
-    'collections/CollectionBooks',
-    'views/ViewBooks',
-    'views/ViewBooksSlider',
     'routes/Router',
     'bootstrap'
-], function (Backbone, CollectionBooks, ViewBooks, ViewBooksSlider, Router) {
+], function (Backbone, Router) {
     var router = new Router();
     Backbone.history.start();
-    // Collection of all books availables
-    var collectionBooks = new CollectionBooks();
-    
-    // Fetch collection of all availables book and display
-    collectionBooks.fetch({ success: function(data){
-        var view = new ViewBooks({collection: collectionBooks});
-        view.el;
-
-        var viewsSlide = new ViewBooksSlider({ collection: collectionBooks });
-        viewsSlide.el;       
-    } });
 
     // Bootstrap Carousel init
     $(".carousel").carousel();

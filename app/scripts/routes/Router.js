@@ -4,19 +4,35 @@ define([
     'jquery',
     'backbone',
     'views/ViewShoppingCart',
-    'collections/CollectionBooksBuy'
-], function ($, Backbone, ViewShoppingCart, CollectionBooksBuy) {
+    'views/ViewBooks',
+    'views/ViewBooksSlider',
+    'collections/CollectionBooksBuy',
+    'collections/CollectionBooks'
+], function ($, Backbone, ViewShoppingCart, ViewBooks, ViewBooksSlider, CollectionBooksBuy, CollectionBooks) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
         routes: {
+          '': 'getHome',
           'checkout': 'getCart'
         },
 
+        getHome: function(){
+           // Collection of all books availables
+          var collectionBooks = new CollectionBooks();
+
+          // This is not the best solution, is better do the fetch in each model
+          collectionBooks.fetch({ success: function(){
+            var view = new ViewBooks({collection: collectionBooks});
+            view.el;
+
+            var viewsSlide = new ViewBooksSlider({ collection: collectionBooks });
+            viewsSlide.el;       
+          } });
+        },
+
         getCart: function(){
-            var collectionBooksBuy = new CollectionBooksBuy();
-            var viewShoppingCart = new ViewShoppingCart({ collection: collectionBooksBuy });
-            this.render();
+          var viewShoppingCart = new ViewShoppingCart({ collection: CollectionBooksBuy });
         }
 
     });

@@ -19,14 +19,14 @@ define([
           this.render();
         },
 
-        render: function(){          
+        render: function(){       
           this.$el.append( this.template() );
           this.collection.each( this.addOne, this );
           return this;
         },
 
         addOne: function(book){
-          var view = new ViewBook({model: book});
+          var view = new ViewBook({ model: book });
           this.$el.find('#books-list').append( view.render().el );
         }
 

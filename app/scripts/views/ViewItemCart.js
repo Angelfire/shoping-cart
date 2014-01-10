@@ -11,11 +11,24 @@ define([
     var ViewshoppingcartView = Backbone.View.extend({
         template: JST['app/scripts/templates/ViewItemCart.hbs'],
 
-        el: 'itemCart',
+        tagName: 'tr',
+        className: 'itemCart',
+
+        initialize: function(){
+            this.model.on('destroy', this.remove, this);
+        },
 
         render: function(){
           this.$el.html( this.template( this.model.toJSON() ) );
           return this;
+        },
+
+        events: {
+            'click .delete-item': 'deleteItem'
+        },
+
+        deleteItem: function() {
+            this.model.destroy();        
         }
         
     });

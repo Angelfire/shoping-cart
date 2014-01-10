@@ -15,19 +15,20 @@ define([
         el: '#midsection',
 
         initialize: function(){
+          this.$el.empty();
           this.collection.on('add', this.addOne, this);
           this.render();
         },
 
         render: function(){
             this.$el.append( this.template() );
-        	this.collection.each( this.addOne, this );
+            this.collection.each( this.addOne, this );
         	return this;
         },
 
         addOne: function(iteminCart){
-            var itemCart = new ViewItemCart({ model: iteminCart });  
-            this.$el.find('#itemCart').append( itemCart.render().el );
+            var itemCart = new ViewItemCart({ model: iteminCart });
+            this.$el.find('#itemsCart').append( itemCart.render().el );
         }
 
     });
