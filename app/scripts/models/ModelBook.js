@@ -13,7 +13,7 @@ define([
           price: 0.0,
           thumbURL: '',
           imgURL: '',
-          inCart: false
+          total: 0.0
         }
     });
 

@@ -10,11 +10,6 @@ body {
   padding-top: 20px;
   padding-bottom: 20px; }
 
-.btn {
-  background-color: #66bcda;
-  border-color: #66bcda;
-  color: white; }
-
 /* Carousel */
 .carousel-caption p,
 .carousel-caption h3 {

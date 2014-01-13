@@ -25,18 +25,20 @@ define([
 
         events: {
             'click .delete-item': 'deleteItem',
-            'change .quantityItems' : 'quantityItem'
+            'change .quantityItems' : 'ammountItem'
         },
 
         deleteItem: function() {
             this.model.destroy();        
         },
 
-        quantityItem: function(e){
-            var ammount = this.model.attributes.price * e.currentTarget.value;
-            this.$el.find('.quantityItem').text(ammount);
-        },
+        ammountItem: function(e){
+            var ammount = this.model.get('price') * e.currentTarget.value;
+            // var ammount = this.model.attributes.price * e.currentTarget.value;
+            this.model.set('total', ammount);
 
+            this.$el.find('.quantityItem').text(ammount);
+        }
 
     });
 

@@ -2,29 +2,33 @@
   {
     "name": "Inside-Out Simplicity",
     "description": "Inside-Out Simplicity",
-    "price": 123.45,
+    "price": 123,
     "imgURL": "images/books/book1.jpg",
-    "thumbURL": "images/books/thumb/thumb-book1.jpg"
+    "thumbURL": "images/books/thumb/thumb-book1.jpg",
+    "total": 123
   },
   {
     "name": "Contagious",
     "description": "Contagious",
-    "price": 678.90,
+    "price": 456,
     "imgURL": "images/books/book2.jpg",
-    "thumbURL": "images/books/thumb/thumb-book3.jpg"
+    "thumbURL": "images/books/thumb/thumb-book3.jpg",
+    "total": 456
   },
   {
     "name": "Born Digital",
     "description": "Understanding the first generation of digital natives",
-    "price": 987.65,
+    "price": 789,
     "imgURL": "images/books/book3.jpg",
-    "thumbURL": "images/books/thumb/thumb-book2.jpg"
+    "thumbURL": "images/books/thumb/thumb-book2.jpg",
+    "total": 789
   },
   {
    "name": "Zelda",
     "description": "Zelda",
-    "price": 432.10,
+    "price": 987,
     "imgURL": "images/books/book4.jpg",
-    "thumbURL": "images/books/thumb/thumb-book4.jpg"
+    "thumbURL": "images/books/thumb/thumb-book4.jpg",
+    "total": 987
   }
 ]

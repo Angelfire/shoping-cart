@@ -30,6 +30,9 @@ define([
 
             // Count total items
             $('#totalItems').text(CollectionBooksBuy.length);
+
+            // Book has been added
+            this.$el.find('.addbtn').addClass('btn-success').val('Added').prop('disabled',true);
         }
 
     });
