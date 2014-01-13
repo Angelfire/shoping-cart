@@ -29,7 +29,18 @@ define([
         },
 
         deleteItem: function() {
-            this.model.destroy();        
+            this.model.destroy();   
+            this.notificationItem();
+        },
+
+        notificationItem: function(){        
+            // Notification  
+            $.pnotify({
+                title: 'Book deleted!',
+                delay: 750,
+                text: 'Book has been deleted succesfully',
+                type: 'error'
+            });  
         },
 
         ammountItem: function(e){

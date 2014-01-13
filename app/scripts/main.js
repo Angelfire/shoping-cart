@@ -23,6 +23,10 @@ require.config({
         localstorage: {
             deps: ['backbone'],
             exports: 'backbone'
+        },
+        pnotify: {
+            deps: ['jquery'],
+            exports: 'jquery'
         }
     },
     paths: {
@@ -31,7 +35,8 @@ require.config({
         underscore: '../bower_components/underscore/underscore',
         handlebars: '../bower_components/handlebars/handlebars',
         bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min',
-        localstorage: '../bower_components/backbone/backbone.localStorage-min'
+        localstorage: '../bower_components/backbone/backbone.localStorage-min',
+        pnotify: '../bower_components/pines-notify/jquery.pnotify.min'
     }
 });
 

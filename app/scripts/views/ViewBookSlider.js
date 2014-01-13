@@ -7,7 +7,8 @@ define([
     'collections/CollectionBooksBuy',
     'views/ViewBook',
     'templates',
-    'localstorage'
+    'localstorage',
+    'pnotify'
 ], function ($, _, Backbone, CollectionBooksBuy, ViewBook, JST, localstorage) {
     'use strict';
 
@@ -33,6 +34,14 @@ define([
 
             // Book has been added
             this.$el.find('.addbtn').addClass('btn-success').val('Added').prop('disabled',true);
+
+            // Notification
+            $.pnotify({
+                title: 'Book added',
+                delay: 750,
+                text: 'Book has been added succesfully!',
+                type: 'success'
+            });
         }
 
     });
