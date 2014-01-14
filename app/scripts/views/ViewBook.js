@@ -31,9 +31,14 @@ define([
             $('#totalItems').text(CollectionBooksBuy.length);
 
             // Book has been added
-            this.$el.find('.addbtn').addClass('btn-success').val('Added').prop('disabled',true);
+            this.$el.find('.addbtn')
+                .addClass('btn-success')
+                .removeClass('btn-primary')
+                .val('Added')
+                .prop('disabled',true);
 
             // Notification
+            var hola = "hola";
             $.pnotify({
                 title: 'Book added',
                 delay: 750,

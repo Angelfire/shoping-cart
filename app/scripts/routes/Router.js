@@ -21,7 +21,7 @@ define([
            // Collection of all books availables
           var collectionBooks = new CollectionBooks();
 
-          // This is not the best solution, is better do the fetch in each model
+          // Fetching collection from JSON
           collectionBooks.fetch({ 
             success: function(){
               var view = new ViewBooks({collection: collectionBooks});

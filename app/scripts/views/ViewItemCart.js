@@ -4,8 +4,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'collections/CollectionBooksBuy',
     'templates'
-], function ($, _, Backbone, JST) {
+], function ($, _, Backbone, CollectionBooksBuy, JST) {
     'use strict';
 
     var ViewshoppingcartView = Backbone.View.extend({
@@ -31,6 +32,9 @@ define([
         deleteItem: function() {
             this.model.destroy();   
             this.notificationItem();
+
+            // Updating number of book in the collection
+            $('#totalItems').text(CollectionBooksBuy.length);
         },
 
         notificationItem: function(){        
